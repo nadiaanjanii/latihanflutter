@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/providers/all_products.dart';
-import 'package:provider/models/product.dart';
-import 'package:provider/providers/all_products.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:provider/provider.dart';
+import '../providers/all_products.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   static const routeName = '/product-detail';
@@ -13,7 +11,7 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args =
         ModalRoute.of(context)!.settings.arguments as String; // is the id!
-    final product = Provider.of<Products>(context).findById(args);
+    final product = Provider.of<Products>(context, listen: false).findById(args); // Use context.read to access the provider
     return Scaffold(
       appBar: AppBar(
         title: const Text('Product Details'),
@@ -24,13 +22,13 @@ class ProductDetailScreen extends StatelessWidget {
             width: double.infinity,
             height: 250,
             child: Image.network(
-              product.imageUrl,
+              product.imageUrl!,
               fit: BoxFit.cover,
             ),
           ),
           SizedBox(height: 30),
           Text(
-            product.title,
+            product.title!,
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
         ],

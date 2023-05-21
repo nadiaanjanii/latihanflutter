@@ -1,4 +1,4 @@
-name: provider
+name: test
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -33,8 +33,7 @@ dependencies:
     sdk: flutter
   google: ^0.0.1
   google_fonts: ^4.0.4
-  provider: ^6.0.5
-  riverpod: ^2.3.6
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
